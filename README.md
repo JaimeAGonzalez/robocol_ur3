@@ -11,4 +11,4 @@ roslaunch ur3_moveit_config ur3_moveit_planning_execution.launch sim:=true
 
 To run Rviz sim:
 
-roslaunch ur5_moveit_config moveit_rviz.launch config:=true
+roslaunch ur3_moveit_config moveit_rviz.launch config:=true
