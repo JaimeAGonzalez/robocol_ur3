@@ -7,6 +7,13 @@
 
   <xacro:include filename="$(find ur_description)/urdf/ur.transmission.xacro" />
   <xacro:include filename="$(find ur_description)/urdf/ur.gazebo.xacro" />
+  <!-- Camera -->
+  <xacro:include filename="$(find ur_description)/urdf/camera.xacro" />
+
+  <!-- Constants -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+  <!-- Camera -->
+  <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
 
    <xacro:macro name="cylinder_inertial" params="radius length mass *origin">
     <inertial>
@@ -37,6 +44,8 @@
     <xacro:property name="wrist_1_mass" value="0.8" />
     <xacro:property name="wrist_2_mass" value="0.8" />
     <xacro:property name="wrist_3_mass" value="0.35" />
+    
+    
 
     <!-- These parameters are borrowed from the urcontrol.conf file
         but are not verified for the correct permutation.
@@ -362,4 +371,7 @@
     </joint>
 
   </xacro:macro>
+
+  <xacro:camera_body/>
+
 </robot>
