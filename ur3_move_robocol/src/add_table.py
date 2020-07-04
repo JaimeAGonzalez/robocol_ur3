@@ -8,7 +8,6 @@ from std_srvs.srv import Empty, EmptyRequest
 
 class ObjectServer(object):
 	def __init__(self):
-		#pass
 		self.scene = PlanningSceneInterface()
 		self.robot = RobotCommander()
 		self.p = PoseStamped()
@@ -22,7 +21,6 @@ class ObjectServer(object):
 		rospy.loginfo("Waiting for object '" + object_name + "'' to appear in planning scene...")
 		gps_req = GetPlanningSceneRequest()
 		gps_req.components.components = gps_req.components.WORLD_OBJECT_NAMES
-		
 		part_in_scene = False
 		while not rospy.is_shutdown() and not part_in_scene:
 			# This call takes a while when rgbd sensor is set
@@ -34,8 +32,8 @@ class ObjectServer(object):
 					break
 			else:
 				rospy.sleep(1.0)
-
 		rospy.loginfo("'" + object_name + "'' is in scene!")
+
 
 	def make_object(self,object_name,x,y,z,sx,sy,sz):
 		rospy.loginfo("Removing any previous 'part' object")
@@ -45,17 +43,13 @@ class ObjectServer(object):
 		self.clear_octomap_srv.call(EmptyRequest())
 		rospy.sleep(2.0)  # Removing is fast
 		rospy.loginfo("Adding new 'part' object")
-
 		rospy.loginfo("Making "+object_name+"...")
-		# pass
-		# self.scene.add_box("part", object_pose, (self.object_depth, self.object_width, self.object_height))
 		self.p.header.frame_id = self.robot.get_planning_frame()
 		self.p.pose.position.x = x
 		self.p.pose.position.y = y
 		self.p.pose.position.z = z
 		self.scene.add_box(object_name, self.p, (sx,sy,sz))
-		#self.wait_for_planning_scene_object()
-		self.wait_for_planning_scene_object("table")
+		self.wait_for_planning_scene_object(object_name)
 
 if __name__ == '__main__':
 	rospy.init_node('table_node',anonymous=True)

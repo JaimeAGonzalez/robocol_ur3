@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ur3_move_robocol</name>
+  <name>panel_description</name>
   <version>0.0.0</version>
-  <description>The ur3_move_robocol package</description>
+  <description>The panel_description package makes a mobile panel for an arm.</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="root@todo.todo">root</maintainer>
-
+  <maintainer email="root@todo.todo">Daniel Barcasnegras</maintainer>
+  <maintainer email="root@todo.todo">Felipe Gómez</maintainer>
+  <maintainer email="root@todo.todo">Jaime Nuñez</maintainer>
+  <maintainer email="root@todo.todo">Jorge Gaviria</maintainer>
+  <maintainer email="root@todo.todo">Juan Camilo Guitierrez</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
@@ -19,7 +22,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/ur3_move_robocol</url> -->
+  <!-- <url type="website">http://wiki.ros.org/panel_description</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -49,24 +52,20 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>geometry_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
-  <build_depend>sensor_msgs</build_depend>
   <build_depend>std_msgs</build_depend>
-  <build_depend>moveit_msgs</build_depend>
-  
-  <build_export_depend>geometry_msgs</build_export_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
-  <build_export_depend>sensor_msgs</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
-  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
-  <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>std_msgs</exec_depend>
-  <exec_depend>moveit_commander</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
