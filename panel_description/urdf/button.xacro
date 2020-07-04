@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="button" params="">
+		<!-- BUTTON LID -->
+		<link name='lid_link'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${axisMass}"/>
+				<xacro:box_inertia m="${axisMass}" x="${axisWidth}" y="${axisLength}" z="${axisHeight}" />
+			</inertial>
+		</link>
+		<!-- LID SPRING JOINT -->
+		<joint name="lid_spring_joint" type="fixed">
+			<parent link="lid_link"/>
+			<child link="spring_link"/>
+			<origin xyz="-0.15 0 0" rpy="0 0 ${PI}"/>
+		</joint>
+		<!-- SPRING LINK -->
+		<link name='spring_link'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/spring.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/spring.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${axisMass}"/>
+				<xacro:box_inertia m="${axisMass}" x="${axisWidth}" y="${axisLength}" z="${axisHeight}" />
+			</inertial>
+		</link>
+	</xacro:macro>
+</robot>

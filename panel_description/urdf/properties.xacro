@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- Constants -->
+	<xacro:property name="PI" value="3.1415926535897931"/>
+	<!-- Scaling -->
+	<xacro:property name="scale_XYZ" value="0.01"/>
+	<xacro:property name="inertia_scale" value="0.0000001"/>
+	<!-- Camera -->
+	<xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
+	<!-- Panel properties -->
+
+	<!-- Button properties -->
+	<xacro:property name="buttonMass" value="10"/>
+	<xacro:property name="buttonWidth" value="0.4327"/>
+	<xacro:property name="buttonLength" value="0.72"/>
+	<xacro:property name="buttonHeight" value="0.174"/>
+	<!-- Pot properties -->
+
+	<!-- Switch properties -->
+
+	<!-- Pot properties -->
+
+	<!-- Pot properties -->
+
+	<!-- Pot properties -->
+
+
+
+	<!-- Suspension -->
+	<xacro:property name="suspensionEffort" value="10.0"/>
+	<xacro:property name="suspensionSpeed" value="10.0"/>
+	<xacro:property name="suspensionDamping" value="0.5"/>
+	<xacro:property name="suspensionFriction" value="5.0"/>
+	<!-- Wheels properties -->
+	<xacro:property name="wheelWidth" value="0.08096"/>
+	<xacro:property name="wheelRadius" value="0.1347"/>
+	<xacro:property name="wheelMass" value="3.5"/>
+	-->
+</robot>
