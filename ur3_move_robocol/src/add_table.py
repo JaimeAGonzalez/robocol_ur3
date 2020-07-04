@@ -55,7 +55,7 @@ class ObjectServer(object):
 		self.p.pose.position.z = z
 		self.scene.add_box(object_name, self.p, (sx,sy,sz))
 		#self.wait_for_planning_scene_object()
-		self.wait_for_planning_scene_object("table")
+		self.wait_for_planning_scene_object(object_name)
 
 if __name__ == '__main__':
 	rospy.init_node('table_node',anonymous=True)
