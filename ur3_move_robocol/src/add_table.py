@@ -45,7 +45,6 @@ class ObjectServer(object):
 		self.clear_octomap_srv.call(EmptyRequest())
 		rospy.sleep(2.0)  # Removing is fast
 		rospy.loginfo("Adding new 'part' object")
-
 		rospy.loginfo("Making "+object_name+"...")
 		# pass
 		# self.scene.add_box("part", object_pose, (self.object_depth, self.object_width, self.object_height))
