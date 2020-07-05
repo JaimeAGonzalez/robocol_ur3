@@ -9,15 +9,15 @@
 	<!-- box -->
 	<xacro:include filename="$(find panel_description)/urdf/box.xacro" />
 	<!-- sector_buttons -->
-	<xacro:include filename="$(find panel_description)/urdf/sector_buttons.xacro" />
+	<!-- <xacro:include filename="$(find panel_description)/urdf/sector_buttons.xacro" /> -->
 	<!-- sector_extra -->
-	<xacro:include filename="$(find panel_description)/urdf/sector_extra.xacro" />
+	<!-- <xacro:include filename="$(find panel_description)/urdf/sector_extra.xacro" /> -->
 	<!-- sector_switches -->
-	<xacro:include filename="$(find panel_description)/urdf/sector_switches.xacro" />
+	<!-- <xacro:include filename="$(find panel_description)/urdf/sector_switches.xacro" /> -->
 	<!-- Join parts -->
 	<xacro:box/>
-	<xacro:sector_buttons/>
-	<xacro:sector_extra/>
-	<xacro:sector_switches/>
+	<!-- <xacro:sector_buttons/> -->
+	<!-- <xacro:sector_extra/> -->
+	<!-- <xacro:sector_switches/> -->
 	<!-- <xacro:camera_body/> -->
 </robot>

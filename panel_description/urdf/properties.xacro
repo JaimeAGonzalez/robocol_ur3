@@ -8,8 +8,11 @@
 	<!-- Camera -->
 	<xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
 	<!-- Panel properties -->
-
-	<!-- Button properties -->
+	<xacro:property name="boxMass" value="1"/>
+	<xacro:property name="boxWidth" value="0.4327"/>
+	<xacro:property name="boxLength" value="0.72"/>
+	<xacro:property name="boxHeight" value="0.174"/>
+	<!-- box properties -->
 	<xacro:property name="buttonMass" value="10"/>
 	<xacro:property name="buttonWidth" value="0.4327"/>
 	<xacro:property name="buttonLength" value="0.72"/>
