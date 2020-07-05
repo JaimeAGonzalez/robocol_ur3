@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="box" params="">
+
+		<link name="base_footprint" />
+
+		<joint name="base_joint" type="fixed">
+			<parent link="base_footprint"/>
+			<child link="box_link"/>
+			<origin xyz="-0.15 0 0" rpy="0 0 ${PI}"/>
+		</joint>
+
+		<link name='box_link'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${boxMass}"/>
+				<xacro:box_inertia m="${boxMass}" x="${boxWidth}" y="${boxLength}" z="${boxHeight}" />
+			</inertial>
+		</link>
+		
+	</xacro:macro>
+</robot>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="button" params="parent_sector_link child_link x y">
+		<!-- SECTOR_BUTTONS TO CYLINDER JOINT -->
+		<joint name="lid_spring_joint" type="fixed">
+			<parent link="${parent_sector_link}"/>
+			<child link="${child_link}"/>
+			<origin xyz="${x} ${y} 0.0" rpy="0 0 ${PI}"/>
+		</joint>
+		<!-- BUTTON LID -->
+		<link name='${child_link}'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${axisMass}"/>
+				<xacro:box_inertia m="${axisMass}" x="${axisWidth}" y="${axisLength}" z="${axisHeight}" />
+			</inertial>
+		</link>
+
+		<joint name="lid_spring_joint" type="fixed">
+			<parent link="${child_link}"/>
+			<child link="xxxxxxxxx"/>
+			<origin xyz="-0.15 0 0" rpy="0 0 ${PI}"/>
+		</joint>
+
+		<link name='xxxxxxxxx'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${axisMass}"/>
+				<xacro:box_inertia m="${axisMass}" x="${axisWidth}" y="${axisLength}" z="${axisHeight}" />
+			</inertial>
+		</link>
+
+	</xacro:macro>
+</robot>

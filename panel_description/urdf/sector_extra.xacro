@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="rex" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<joint name="sector_extra_joint" type="fixed">
+		<parent link="box_link"/>
+		<child link="sector_extra_link"/>
+		<origin xyz="-0.15 0 0" rpy="0 0 ${PI}"/>
+	</joint>
+	
+	<!-- Inertia matrices -->
+	<xacro:include filename="$(find panel_description)/urdf/button.xacro" />
+	<!-- Join parts -->
+	<xacro:button link_sector="button_1_joint" x="0.0" y="0.0" />
+	<xacro:button link_sector="button_2_joint" x="0.0" y="0.0" />
+</robot>

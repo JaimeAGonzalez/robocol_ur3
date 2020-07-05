@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="robocol_rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- Inertia matrices -->
+	<xacro:include filename="$(find panel_description)/urdf/macros.xacro" />
+	<!-- Robot constants and properties -->
+	<xacro:include filename="$(find panel_description)/urdf/properties.xacro" />
+	<!-- Gazebo aspects of the robot -->
+	<!-- <xacro:include filename="$(find panel_description)/urdf/robocol_rover.gazebo" /> -->
+	<!-- box -->
+	<xacro:include filename="$(find panel_description)/urdf/box.xacro" />
+	<!-- sector_buttons -->
+	<xacro:include filename="$(find panel_description)/urdf/sector_buttons.xacro" />
+	<!-- sector_extra -->
+	<xacro:include filename="$(find panel_description)/urdf/sector_extra.xacro" />
+	<!-- sector_switches -->
+	<xacro:include filename="$(find panel_description)/urdf/sector_switches.xacro" />
+	<!-- Join parts -->
+	<xacro:box/>
+	<xacro:sector_buttons/>
+	<xacro:sector_extra/>
+	<xacro:sector_switches/>
+	<!-- <xacro:camera_body/> -->
+</robot>

@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="button" params="parent_sector_link child_link x y">
+		<!-- SECTOR_BUTTONS TO CYLINDER JOINT -->
+		<joint name="lid_spring_joint" type="fixed">
+			<parent link="${parent_sector_link}"/>
+			<child link="${child_link}"/>
+			<origin xyz="${x} ${y} 0.0" rpy="0 0 ${PI}"/>
+		</joint>
+		<!-- BUTTON LID -->
+		<link name='${child_link}'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${axisMass}"/>
+				<xacro:box_inertia m="${axisMass}" x="${axisWidth}" y="${axisLength}" z="${axisHeight}" />
+			</inertial>
+		</link>
+
+		<joint name="suspension_left_boogie_joint" type="revolute">
+			<parent link="left_rocker"/>
+			<child link="left_boogie"/>
+			<origin xyz="0.035 -0.21 -0.1075" rpy="-0.13 0 ${PI}"/>
+			<limit lower="${-left_boogie_limit}" upper="${left_boogie_limit}" effort="${suspension_effort}" velocity="${suspension_speed}"/>
+			<axis xyz="1 0 0"/>
+			<joint_properties damping="${suspension_damping}" friction="${suspension_friction}"/>
+		</joint>
+
+		<link name='xxxxxxxxx'>
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<mass value="${axisMass}"/>
+				<xacro:box_inertia m="${axisMass}" x="${axisWidth}" y="${axisLength}" z="${axisHeight}" />
+			</inertial>
+		</link>
+
+	</xacro:macro>
+</robot>
