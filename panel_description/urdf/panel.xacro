@@ -8,6 +8,11 @@
 	<!-- <xacro:include filename="$(find panel_description)/urdf/robocol_rover.gazebo" /> -->
 	<!-- box -->
 	<xacro:include filename="$(find panel_description)/urdf/box.xacro" />
+	<xacro:include filename="$(find panel_description)/urdf/switch.xacro" />
+	<xacro:include filename="$(find panel_description)/urdf/sector_switches.xacro" />
+
+
+
 	<!-- sector_buttons -->
 	<!-- <xacro:include filename="$(find panel_description)/urdf/sector_buttons.xacro" /> -->
 	<!-- sector_extra -->
@@ -15,9 +20,13 @@
 	<!-- sector_switches -->
 	<!-- <xacro:include filename="$(find panel_description)/urdf/sector_switches.xacro" /> -->
 	<!-- Join parts -->
-	<xacro:box/>
+	<!---<xacro:box/> -->
+
 	<!-- <xacro:sector_buttons/> -->
 	<!-- <xacro:sector_extra/> -->
-	<!-- <xacro:sector_switches/> -->
+	<xacro:sector_switches/>
 	<!-- <xacro:camera_body/> -->
+	<!--<link name="base_footprint" />
+
+	<xacro:switch parent_sector_link ="base_footprint"  child_link= "switch" x="0" y="0"/>-->
 </robot>

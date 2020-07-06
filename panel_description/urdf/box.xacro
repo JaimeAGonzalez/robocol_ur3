@@ -29,6 +29,6 @@
 				<xacro:box_inertia m="${boxMass}" x="${boxWidth}" y="${boxLength}" z="${boxHeight}" />
 			</inertial>
 		</link>
-
+		<!-- <xacro:switch parent_sector_link ="box_link"  child_link= "switch" x="0" y="0"/> -->
 	</xacro:macro>
 </robot>

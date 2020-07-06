@@ -20,6 +20,38 @@
 	<!-- Pot properties -->
 
 	<!-- Switch properties -->
+	<!-- Switch box properties-->
+	<xacro:property name="switchboxMass" value="0.770"/>
+	<xacro:property name="switchboxWidth" value="0.320"/>
+	<xacro:property name="switchboxLength" value="0.380"/>
+	<xacro:property name="switchboxHeight" value="0.020"/>
+	<!-- enclosure properties -->
+	<xacro:property name="enclosureMass" value="0.005"/>
+	<xacro:property name="enclosureWidth" value="0.019"/>
+	<xacro:property name="enclosureLength" value="0.030"/>
+	<xacro:property name="enclosureHeight" value="0.026"/>
+	<!-- Base properties -->
+	<xacro:property name="baseMass" value="0.016"/>
+	<xacro:property name="baseWidth" value="0.010"/>
+	<xacro:property name="baseLength" value="0.010"/>
+	<xacro:property name="baseHeight" value="0.070"/>
+	<!-- Triangle properties -->
+	<xacro:property name="triangleMass" value="0.010"/>
+	<xacro:property name="triangleWidth" value="0.010"/>
+	<xacro:property name="triangleLength" value="0.02"/>
+	<xacro:property name="triangleHeight" value="0.010"/>
+	<!-- Trigger properties -->
+	<xacro:property name="triggerMass" value="0.002"/>
+	<xacro:property name="triggerRadio" value="0.003"/>
+	<xacro:property name="triggerHeight" value="0.011"/>
+	<!-- Spring properties -->
+	<xacro:property name="springMass" value="0.003"/>
+	<xacro:property name="springRadio" value="0.00275"/>
+	<xacro:property name="springHeight" value="0.005"/>
+	<!-- Lever properties -->
+	<xacro:property name="leverMass" value="0.008"/>
+	<xacro:property name="leverRadio" value="0.0045"/>
+	<xacro:property name="leverHeight" value="0.030"/>
 
 	<!-- Pot properties -->
 

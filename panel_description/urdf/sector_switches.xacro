@@ -1,35 +1,48 @@
 <?xml version="1.0"?>
-<robot name="rex" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="sector_switches" params="">
 
-	<joint name="sector_switch_joint" type="fixed">
-		<parent link="box_link"/>
-		<child link="sector_switch_link"/>
-		<origin xyz="-0.15 0 0" rpy="0 0 ${PI}"/>
-	</joint>
+		<link name="base_footprint"/>
 
-	<link name='sector_switch_link'>
-		<collision>
-			<origin xyz="0 0 0"	rpy="0 0 0"/>
-			<geometry>
-				<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
-			</geometry>
-		</collision>
-		<visual>
-			<origin xyz="0 0 0"	rpy="0 0 0"/>
-			<geometry>
-				<mesh filename="package://panel_description/meshes/visual/lid.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
-			</geometry>
-		</visual>
-		<inertial>
-			<origin xyz="0 0 0"	rpy="0 0 0"/>
-			<mass value="${boxMass}"/>
-			<xacro:box_inertia m="${boxMass}" x="${boxWidth}" y="${boxLength}" z="${boxHeight}" />
-		</inertial>
-	</link>
+		<joint name="sector_switch_joint" type="fixed">
+			<parent link="base_footprint"/>
+			<child link="sector_switch_link"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</joint>
 
-	<!-- Inertia matrices -->
-	<xacro:include filename="$(find panel_description)/urdf/switch.xacro" />
-	<!-- Join parts -->
-	<xacro:switch link_sector="sector_switch_link switch_1_joint" x="0.0" y="0.0" />
-	<xacro:switch link_sector="sector_switch_link switch_2_joint" x="0.0" y="0.0" />
+		<link name="sector_switch_link">
+			<collision>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/collisions/sector_switch.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</collision>
+			<visual>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://panel_description/meshes/visual/sector_switch.stl" scale="${scale_XYZ} ${scale_XYZ} ${scale_XYZ}"/>
+				</geometry>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0"	rpy="0 0 0"/>switch_1_joint
+				<mass value="${switchboxMass}"/>
+				<xacro:box_inertia m="${switchboxMass}" x="${switchboxWidth}" y="${switchboxLength}" z="${switchboxHeight}" />
+			</inertial>
+		</link>
+
+		<!-- Join parts -->
+
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_1_joint" x="0" y="0"/>
+		<!--<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_2_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_3_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_4_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_5_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_6_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_7_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_8_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_9_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_10_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_11_joint" x="0" y="0"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_12_joint" x="0" y="0"/>-->
+	</xacro:macro>
 </robot>
