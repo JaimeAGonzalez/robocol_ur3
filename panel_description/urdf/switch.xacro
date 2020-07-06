@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:macro name="switch" params="parent_sector_link child_link x y">
+	<xacro:macro name="switch" params="parent_sector_link child_link x y z">
 
 
 		<!-- SECTOR_SWITCH TO CYLINDER JOINT -->
-		<joint name="switch_joint" type="fixed">
+		<joint name="${child_link}_switch_joint" type="fixed">
 			<parent link="${parent_sector_link}"/>
 			<child link="${child_link}"/>
-			<origin xyz="${x} ${y} 0.1" rpy="0 ${PI/2} 0"/>
+			<origin xyz="${x} ${y} ${z}" rpy="${0} ${0} ${PI/2}"/>
 		</joint>
 		<!-- Switch sector LID -->
 		<link name="${child_link}">
@@ -33,13 +33,13 @@
 
 
 		<!-- Enclosure TO Base1 JOINT -->
-		<joint name="enclosure_base1_joint" type="fixed">
+		<joint name="${child_link}_enclosure_base1_joint" type="fixed">
 			<parent link="${child_link}"/>
-			<child link="base1_link"/>
+			<child link="${child_link}_base1_link"/>
 			<origin xyz="${-0.0125} ${0.01} ${-0.0125}" rpy="0 ${-3*PI/2} ${-PI/2}"/>
 		</joint>
 
-		<link name='base1_link'>
+		<link name='${child_link}_base1_link'>
 			<collision>
 				<origin xyz="0 0 0"	rpy="0 0 0"/>
 				<geometry>
@@ -62,13 +62,13 @@
 
 
 		<!-- Enclosure TO Base2 JOINT -->
-		<joint name="enclosure_base2_joint" type="fixed">
+		<joint name="${child_link}_enclosure_base2_joint" type="fixed">
 			<parent link="${child_link}"/>
-			<child link="base2_link"/>
+			<child link="${child_link}_base2_link"/>
 			<origin xyz="${-0.0125} ${0.01} 0.01" rpy="0 0 ${-PI/2}"/>
 		</joint>
 
-		<link name='base2_link'>
+		<link name='${child_link}_base2_link'>
 			<collision>
 				<origin xyz="${-0.01} 0.003 ${-0.005}"	rpy="0 0 0"/>
 				<geometry>
@@ -90,13 +90,13 @@
 
 
 		<!-- Base1 TO triangle JOINT -->
-		<joint name="base1_triangle_joint" type="fixed">
-			<parent link="base1_link"/>
-			<child link="triangle_link"/>
+		<joint name="${child_link}_base1_triangle_joint" type="fixed">
+			<parent link="${child_link}_base1_link"/>
+			<child link="${child_link}_triangle_link"/>
 			<origin xyz="${-0.01} 0.003 ${-0.005}" rpy="0 0 0"/>
 		</joint>
 
-		<link name='triangle_link'>
+		<link name='${child_link}_triangle_link'>
 			<collision>
 				<origin xyz="0 0 0"	rpy="0 0 0"/>
 				<geometry>
@@ -118,14 +118,14 @@
 
 
 		<!-- Triangle TO trigger JOINT Existe ligera colision con triangle, solo mover x un poquito (+- 0.001)-->
-		<joint name="triangle_trigger_joint" type="revolute">
-			<parent link="triangle_link"/>
-			<child link="trigger_link"/>
+		<joint name="${child_link}_triangle_trigger_joint" type="revolute">
+			<parent link="${child_link}_triangle_link"/>
+			<child link="${child_link}_trigger_link"/>
 			<origin xyz="${-0.005} ${0.015} ${0.005}" rpy="${3*PI/2} ${PI/2} ${PI/2}"/>
 			<limit lower="${-PI/4}" upper="${PI/4}" effort="0" velocity="1"/>
 		</joint>
 
-		<link name='trigger_link'>
+		<link name='${child_link}_trigger_link'>
 			<collision>
 				<origin xyz="0 0 0"	rpy="0 0 0"/>
 				<geometry>
@@ -148,13 +148,13 @@
 
 
 <!-- Trigger to spring JOINT -->
-		<joint name="trigger_spring_joint" type="fixed">
-			<parent link="trigger_link"/>
-			<child link="spring_link"/>
+		<joint name="${child_link}_trigger_spring_joint" type="fixed">
+			<parent link="${child_link}_trigger_link"/>
+			<child link="${child_link}_spring_link"/>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 		</joint>
 
-		<link name='spring_link'>
+		<link name='${child_link}_spring_link'>
 			<collision>
 				<origin xyz="0 0 0"	rpy="0 0 0"/>
 				<geometry>
@@ -175,13 +175,13 @@
 		</link>
 
 		<!-- Spring TO lever JOINT -->
-		<joint name="spring_lever_joint" type="fixed">
-			<parent link="spring_link"/>
-			<child link="lever_link"/>
+		<joint name="${child_link}_spring_lever_joint" type="fixed">
+			<parent link="${child_link}_spring_link"/>
+			<child link="${child_link}_lever_link"/>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 		</joint>
 
-		<link name='lever_link'>
+		<link name='${child_link}_lever_link'>
 			<collision>
 				<origin xyz="0 0 0"	rpy="0 0 0"/>
 				<geometry>

@@ -7,7 +7,7 @@
 		<joint name="sector_switch_joint" type="fixed">
 			<parent link="base_footprint"/>
 			<child link="sector_switch_link"/>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0.3" rpy="0 0 0"/>
 		</joint>
 
 		<link name="sector_switch_link">
@@ -24,7 +24,7 @@
 				</geometry>
 			</visual>
 			<inertial>
-				<origin xyz="0 0 0"	rpy="0 0 0"/>switch_1_joint
+				<origin xyz="0 0 0"	rpy="0 0 0"/>
 				<mass value="${switchboxMass}"/>
 				<xacro:box_inertia m="${switchboxMass}" x="${switchboxWidth}" y="${switchboxLength}" z="${switchboxHeight}" />
 			</inertial>
@@ -32,17 +32,18 @@
 
 		<!-- Join parts -->
 
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_1_joint" x="0" y="0"/>
-		<!--<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_2_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_3_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_4_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_5_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_6_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_7_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_8_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_9_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_10_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_11_joint" x="0" y="0"/>
-		<xacro:switch parent_sector_link ="sector_switch_link"  child_link= "switch_12_joint" x="0" y="0"/>-->
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_1_link" x="0.059" y="0.007" z= "0.034"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_2_link" x="0.059" y="0.007" z= "-0.036"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_3_link" x="0.059" y="0.007" z= "0.102"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_4_link" x="0.059" y="0.007" z= "-0.1053"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_5_link" x="0.019" y="0.007" z= "0.034"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_6_link" x="0.019" y="0.007" z= "-0.036"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_7_link" x="0.019" y="0.007" z= "0.102"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_8_link" x="0.019" y="0.007" z= "-0.1053"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_9_link" x="-0.021" y="0.007" z= "0.034"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_10_link" x="-0.021" y="0.007" z= "-0.036"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_11_link" x="-0.021" y="0.007" z= "0.102"/>
+		<xacro:switch parent_sector_link ="sector_switch_link"  child_link="switch_12_link" x="-0.021" y="0.007" z= "-0.1053"/>
+
 	</xacro:macro>
 </robot>
