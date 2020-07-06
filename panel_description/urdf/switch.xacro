@@ -4,7 +4,7 @@
 
 
 		<!-- SECTOR_SWITCH TO CYLINDER JOINT -->
-		<joint name="sector_switch_joint" type="fixed">
+		<joint name="switch_joint" type="fixed">
 			<parent link="${parent_sector_link}"/>
 			<child link="${child_link}"/>
 			<origin xyz="${x} ${y} 0.1" rpy="0 ${PI/2} 0"/>
